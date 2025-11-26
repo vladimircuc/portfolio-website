@@ -4,7 +4,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-semibold tracking-tight">About Me</h1>
 
       <p className="text-slate-200 leading-relaxed">
-        I&apos;m Vladimir Cuc, an OSCP-certified penetration tester and
+        I&apos;m Vladimir Cuc (Noob), an OSCP-certified penetration tester and
         cybersecurity student focused on offensive security. I enjoy breaking
         into networks (legally), documenting my approach, and building scripts
         to automate recon and exploitation.
