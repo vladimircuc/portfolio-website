@@ -49,7 +49,13 @@ export function HeaderNav() {
     } else {
       const section = document.querySelector(href);
       if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        const headerOffset = 80;
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     }
     if (mobileMenuRef.current) {

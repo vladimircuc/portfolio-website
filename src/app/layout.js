@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#0D0D0D] text-slate-100 antialiased">
+      <body className="min-h-screen bg-[#0D0D0D] text-slate-100 antialiased overflow-x-hidden">
         <div className="h-1 w-full bg-gradient-to-r from-[#8B0000] via-[#FF6A00] to-[#8B0000]" />
 
         <header className="sticky top-0 z-50 border-b border-white/5 bg-[#060606cc] backdrop-blur-xl shadow-[0_10px_30px_rgba(139,0,0,0.25)]">
