@@ -1396,7 +1396,7 @@ export default function HomePage() {
       <section
         id="contact"
         ref={contactRef}
-        className={`scroll-mt-32 py-2 md:py-4 border-t-0 md:border-t border-white/10 text-white/80 transition-all duration-1000 ease-out ${
+        className={`scroll-mt-32 py-2 md:py-4 md:-mb-8 border-t-0 md:border-t border-white/10 text-white/80 transition-all duration-1000 ease-out ${
           contactAnimated 
             ? "opacity-100 translate-y-0" 
             : "opacity-0 translate-y-10"
