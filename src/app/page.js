@@ -62,7 +62,7 @@ export default function HomePage() {
   const [blogPosts, setBlogPosts] = useState([
     { title: "I Passed the OSCP on My First Attempt", subtitle: "", image: "", loading: true },
     { title: "FLU Proving Grounds Walkthrough", subtitle: "", image: "", loading: true },
-    { title: "How to Hack Internal from THM", subtitle: "", image: "", loading: true },
+    { title: "Mzeeav PG Walkthrough", subtitle: "", image: "", loading: true },
   ]);
 
   const [progressWidths, setProgressWidths] = useState({
@@ -1316,9 +1316,9 @@ export default function HomePage() {
             </div>
           </a>
 
-          {/* Blog Post 3: THM Internal */}
+          {/* Blog Post 3: Mzeeav PG Walkthrough */}
           <a
-            href="https://medium.com/@vladimircuc007/how-to-hack-internal-from-thm-136a80c11741"
+            href="https://medium.com/@vladimircuc007/mzeeav-pg-walkthrough-b086b9cb9c7f"
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative block rounded-xl border-l-4 border-[#5B21B6] bg-gradient-to-r from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#5B21B6]/20 hover:border-[#8B5CF6] ${
