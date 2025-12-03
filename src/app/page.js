@@ -426,7 +426,7 @@ export default function HomePage() {
             <div className="relative w-full max-w-md lg:max-w-lg">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[#8B0000]/20 via-[#FF6A00]/15 to-[#8B0000]/20 blur-2xl animate-[subtle-glow_3s_ease-in-out_infinite]" />
               <img
-                src="/photo.jpg"
+                src="/photo.webp"
                 alt="Vladimir Cuc"
                 className="relative w-full rounded-3xl object-cover shadow-2xl"
               />
@@ -562,7 +562,7 @@ export default function HomePage() {
               style={{ transitionDelay: certificationsAnimated ? "0ms" : "0ms" }}
             >
               <img
-                src="/oscp.png"
+                src="/oscp.webp"
                 alt="OSCP+ Certification"
                 className="relative w-36 h-36 object-contain"
               />
@@ -580,7 +580,7 @@ export default function HomePage() {
               style={{ transitionDelay: certificationsAnimated ? "100ms" : "0ms" }}
             >
               <img
-                src="/sec.png"
+                src="/sec.webp"
                 alt="Security+ Certification"
                 className="relative w-36 h-36 object-contain"
               />
@@ -598,7 +598,7 @@ export default function HomePage() {
               style={{ transitionDelay: certificationsAnimated ? "200ms" : "0ms" }}
             >
               <img
-                src="/google.png"
+                src="/google.webp"
                 alt="Google Cybersecurity Certificate"
                 className="relative w-36 h-36 object-contain"
               />
@@ -616,7 +616,7 @@ export default function HomePage() {
               style={{ transitionDelay: certificationsAnimated ? "300ms" : "0ms" }}
             >
               <img
-                src="/sc.png"
+                src="/sc.webp"
                 alt="Microsoft Security, Compliance, and Identity Fundamentals"
                 className="relative w-36 h-36 object-contain"
               />
@@ -634,7 +634,7 @@ export default function HomePage() {
               style={{ transitionDelay: certificationsAnimated ? "400ms" : "0ms" }}
             >
               <img
-                src="/az.png"
+                src="/az.webp"
                 alt="Microsoft Azure Fundamentals"
                 className="relative w-36 h-36 object-contain"
               />
@@ -1089,7 +1089,7 @@ export default function HomePage() {
             {/* Project Image - Full Width */}
             <div className="relative h-52 md:h-64 w-full bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 overflow-hidden">
               <img
-                src="/raptor.png"
+                src="/raptor.webp"
                 alt="RaptorRecon"
                 className="w-full h-full object-cover"
               />
@@ -1129,7 +1129,7 @@ export default function HomePage() {
             {/* Project Image - Full Width */}
             <div className="relative h-52 md:h-64 w-full bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 overflow-hidden">
               <img
-                src="/dragon.png"
+                src="/dragon.webp"
                 alt="DragonMap"
                 className="w-full h-full object-cover"
               />
