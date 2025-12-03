@@ -1,7 +1,9 @@
 import "./globals.css";
+import Script from "next/script";
 import { HeaderNav } from "../components/HeaderNav";
 import { BrandHome } from "../components/BrandHome";
 import { Footer } from "../components/Footer";
+import AnalyticsTracker from "../components/AnalyticsTracker";
 
 export const metadata = {
   title: "Vladimir Cuc | Portfolio",
@@ -12,9 +14,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-896N9JV6EX';
+
   return (
     <html lang="en" style={{ colorScheme: 'dark' }}>
       <body className="min-h-screen bg-[#0D0D0D] text-slate-100 antialiased overflow-x-hidden">
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+        <AnalyticsTracker />
         <div className="h-1 w-full bg-gradient-to-r from-[#8B0000] via-[#FF6A00] to-[#8B0000]" />
 
         <header className="sticky top-0 z-50 border-b border-white/5 bg-[#060606cc] backdrop-blur-xl shadow-[0_10px_30px_rgba(139,0,0,0.25)]">
