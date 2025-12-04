@@ -61,7 +61,7 @@ export default function HomePage() {
   const [contactAnimated, setContactAnimated] = useState(false);
   const [blogPosts, setBlogPosts] = useState([
     { title: "I Passed the OSCP on My First Attempt", subtitle: "", image: "", loading: true },
-    { title: "FLU Proving Grounds Walkthrough", subtitle: "", image: "", loading: true },
+    { title: "CLUE Proving Grounds Walkthrough", subtitle: "", image: "", loading: true },
     { title: "Mzeeav PG Walkthrough", subtitle: "", image: "", loading: true },
   ]);
 
@@ -1256,9 +1256,9 @@ export default function HomePage() {
             </div>
           </a>
 
-          {/* Blog Post 2: FLU Proving Grounds */}
+          {/* Blog Post 2: CLUE Proving Grounds */}
           <a
-            href="https://medium.com/@vladimircuc007/flu-proving-grounds-walkthrough-932250fecc69"
+            href="https://medium.com/@vladimircuc007/clue-pg-walkthrough-a365256d50e4"
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative block rounded-xl border-l-4 border-[#8B0000] bg-gradient-to-r from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#8B0000]/20 hover:border-[#FF4444] ${

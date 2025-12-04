@@ -1,7 +1,7 @@
 export async function GET() {
   const postSlugs = [
     "i-passed-the-oscp-on-my-first-attempt-24882ce506a3",
-    "flu-proving-grounds-walkthrough-932250fecc69",
+    "clue-pg-walkthrough-a365256d50e4",
     "mzeeav-pg-walkthrough-b086b9cb9c7f",
   ];
 
