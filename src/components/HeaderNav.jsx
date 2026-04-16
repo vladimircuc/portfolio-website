@@ -66,13 +66,13 @@ export function HeaderNav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden items-center gap-6 md:flex">
+      <nav className="hidden items-center gap-3 lg:gap-6 md:flex">
         {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
             onClick={(e) => handleNavClick(e, item.href)}
-            className={`relative text-sm font-medium uppercase tracking-wide transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-[#8B0000] after:to-[#FF6A00] after:transition-all after:duration-300 after:content-[''] md:hover:text-[#FF6A00] md:hover:after:w-full ${
+            className={`relative text-xs lg:text-sm font-medium uppercase tracking-wide transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-[#8B0000] after:to-[#FF6A00] after:transition-all after:duration-300 after:content-[''] md:hover:text-[#FF6A00] md:hover:after:w-full ${
               activeSection === item.href.slice(1)
                 ? "text-[#FF6A00] after:scale-x-100 after:w-full"
                 : "text-white/70"

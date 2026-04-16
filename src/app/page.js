@@ -67,7 +67,8 @@ export default function HomePage() {
 
   const [progressWidths, setProgressWidths] = useState({
     offensive: [0, 0, 0, 0, 0],
-    tools: [0, 0, 0, 0, 0],
+    secops: [0, 0, 0, 0, 0],
+    cloud: [0, 0, 0, 0, 0],
     programming: [0, 0, 0, 0, 0],
   });
   // Phishing mini-game state
@@ -294,14 +295,16 @@ export default function HomePage() {
             setHasAnimated(true);
             const targetWidths = {
               offensive: [88, 85, 82, 90, 86],
-              tools: [87, 92, 89, 84, 83],
+              secops: [87, 85, 84, 82, 80],
+              cloud: [80, 86, 83, 78, 81],
               programming: [91, 86, 88, 79, 82],
             };
 
             setTimeout(() => {
               setProgressWidths({
                 offensive: targetWidths.offensive,
-                tools: targetWidths.tools,
+                secops: targetWidths.secops,
+                cloud: targetWidths.cloud,
                 programming: targetWidths.programming,
               });
             }, 100);
@@ -349,12 +352,12 @@ export default function HomePage() {
                 OSCP+ &amp; Security+ Certified
               </p>
               <p className="mt-2 text-lg text-white/70">
-                Cybersecurity Enthusiast
+                Security Engineer &amp; Penetration Tester
               </p>
             </div>
 
             <p className="text-base leading-relaxed text-white/80 sm:text-lg">
-              I&apos;m passionate about cybersecurity, especially offensive security. I focus on penetration testing, Active Directory attack paths, and automating red-team workflows to strengthen organizational defenses.
+              I&apos;m passionate about cybersecurity, from offensive security and penetration testing to security operations and cloud infrastructure. I focus on Active Directory attack paths, SIEM-driven detection, and building tooling that strengthens organizational defenses.
             </p>
 
             {/* Buttons */}
@@ -383,7 +386,7 @@ export default function HomePage() {
 
             {/* Blog Card */}
             <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 p-6 backdrop-blur-sm">
-              <h3 className="text-lg font-semibold text-white">Latest Penetration Testing Insights</h3>
+              <h3 className="text-lg font-semibold text-white">Latest Security Insights</h3>
               <p className="mt-2 text-sm text-white/70">
                 Explore my OSCP-style walkthroughs covering enumeration, exploitation,
                 lateral movement, and privilege escalation with clear methodology.
@@ -458,10 +461,10 @@ export default function HomePage() {
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[#8B0000]/10 via-[#FF6A00]/5 to-[#8B0000]/10 blur-2xl -z-10" />
               
               <p>
-                My path into cybersecurity started with a simple curiosity about how systems break — and how attackers think. Over time, that curiosity became a structured approach to understanding real adversarial behavior and reproducing it in controlled environments.
+                My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. Over time, that curiosity became a structured approach to understanding real adversarial behavior, strengthening defenses, and bridging the gap between offensive testing and security engineering.
               </p>
               <p>
-                Most of my work revolves around designing realistic attack scenarios, mapping internal attack paths, and learning how modern organizations actually fail — not theoretically, but in practice. I enjoy deconstructing security assumptions, analyzing infrastructure from an attacker&apos;s perspective, and building efficient tooling to automate parts of the offensive workflow.
+                My work spans offensive security, security operations, and cloud infrastructure. I design realistic attack scenarios and map internal attack paths, but I also tune SIEM detections, investigate alerts, and harden identity and access controls. I enjoy analyzing infrastructure from both sides, finding where organizations fail and building the tooling to fix it.
               </p>
             </div>
 
@@ -515,7 +518,7 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span>Lakeland, FL</span>
+                    <span>St. Louis, MO</span>
                   </div>
                 </div>
               </div>
@@ -658,16 +661,16 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6">
-            <span className="md:hidden">Core offensive security tools and techniques</span>
-            <span className="hidden md:inline">A snapshot of the technologies and offensive techniques I use across real-world assessments and red-team workflows</span>
+            <span className="md:hidden">Offensive security, security operations, and cloud</span>
+            <span className="hidden md:inline">A snapshot of the technologies I use across penetration testing, security operations, cloud infrastructure, and automation</span>
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* Offensive Techniques Card - Red Theme */}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {/* Offensive Security Card - Red Theme */}
           <div className={`rounded-2xl border border-[#8B0000]/30 bg-gradient-to-br from-[#8B0000]/10 via-[#1a0a0a] to-[#8B0000]/5 p-6 shadow-lg shadow-[#8B0000]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
-            hasAnimated 
-              ? "opacity-100 translate-y-0" 
+            hasAnimated
+              ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: hasAnimated ? "0ms" : "0ms" }}
@@ -678,11 +681,11 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Offensive Techniques</h3>
+              <h3 className="text-xl font-semibold text-white">Offensive Security</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "Active Directory Attack", level: 88, index: 0 },
+                { name: "Active Directory Attacks", level: 88, index: 0 },
                 { name: "Web App Testing", level: 85, index: 1 },
                 { name: "Pivoting/Tunneling", level: 82, index: 2 },
                 { name: "Privilege Escalation (Linux/Windows)", level: 90, index: 3 },
@@ -704,10 +707,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Tools Card - Orange Theme */}
+          {/* Security Operations Card - Orange Theme */}
           <div className={`rounded-2xl border border-[#FF6A00]/30 bg-gradient-to-br from-[#FF6A00]/10 via-[#1a0a0a] to-[#FF6A00]/5 p-6 shadow-lg shadow-[#FF6A00]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
-            hasAnimated 
-              ? "opacity-100 translate-y-0" 
+            hasAnimated
+              ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: hasAnimated ? "200ms" : "0ms" }}
@@ -715,19 +718,18 @@ export default function HomePage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="rounded-full bg-gradient-to-br from-[#FF6A00]/40 to-[#FF6A00]/20 p-3 border border-[#FF6A00]/50">
                 <svg className="w-6 h-6 text-[#FF6A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Tools</h3>
+              <h3 className="text-xl font-semibold text-white">Security Operations</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "BloodHound", level: 87, index: 0 },
-                { name: "Burp Suite", level: 92, index: 1 },
-                { name: "Nmap/RustScan", level: 89, index: 2 },
-                { name: "Chisel/Ligolo-NG", level: 84, index: 3 },
-                { name: "Gobuster", level: 83, index: 4 },
+                { name: "SIEM (Splunk)", level: 87, index: 0 },
+                { name: "Microsoft Defender", level: 85, index: 1 },
+                { name: "Incident Triage", level: 84, index: 2 },
+                { name: "Forensic Imaging", level: 82, index: 3 },
+                { name: "Log Analysis", level: 80, index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
                   <div className="flex items-center justify-between text-sm mb-2">
@@ -737,7 +739,7 @@ export default function HomePage() {
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#FF6A00]/20">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#FF6A00] to-[#FFAA44] transition-all duration-[2000ms] ease-out"
-                      style={{ width: `${progressWidths.tools[skill.index]}%` }}
+                      style={{ width: `${progressWidths.secops[skill.index]}%` }}
                     />
                   </div>
                 </div>
@@ -745,13 +747,53 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Programming/Scripting Card - Toned Down Purple Theme */}
-          <div className={`rounded-2xl border border-[#5B21B6]/25 bg-gradient-to-br from-[#5B21B6]/8 via-[#1a0a0a] to-[#4C1D95]/4 p-6 shadow-lg shadow-[#5B21B6]/15 backdrop-blur-sm transition-all duration-1000 ease-out ${
-            hasAnimated 
-              ? "opacity-100 translate-y-0" 
+          {/* Cloud & Identity Card - Blue Theme */}
+          <div className={`rounded-2xl border border-[#1D4ED8]/25 bg-gradient-to-br from-[#1D4ED8]/8 via-[#1a0a0a] to-[#1E40AF]/4 p-6 shadow-lg shadow-[#1D4ED8]/15 backdrop-blur-sm transition-all duration-1000 ease-out ${
+            hasAnimated
+              ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: hasAnimated ? "400ms" : "0ms" }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="rounded-full bg-gradient-to-br from-[#1D4ED8]/30 to-[#1E40AF]/15 p-3 border border-[#1D4ED8]/40">
+                <svg className="w-6 h-6 text-[#60A5FA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-white">Cloud & Identity</h3>
+            </div>
+            <div className="space-y-4">
+              {[
+                { name: "Azure Fundamentals", level: 80, index: 0 },
+                { name: "Identity & Access Management", level: 86, index: 1 },
+                { name: "Active Directory Administration", level: 83, index: 2 },
+                { name: "Security Compliance (SC-900)", level: 78, index: 3 },
+                { name: "Endpoint Management", level: 81, index: 4 },
+              ].map((skill) => (
+                <div key={skill.name}>
+                  <div className="flex items-center justify-between text-sm mb-2">
+                    <span className="text-white/90">{skill.name}</span>
+                    <span className="text-[#60A5FA] font-semibold">{skill.level}%</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-[#1D4ED8]/15">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#60A5FA] transition-all duration-[2000ms] ease-out"
+                      style={{ width: `${progressWidths.cloud[skill.index]}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Programming & Tooling Card - Purple Theme */}
+          <div className={`rounded-2xl border border-[#5B21B6]/25 bg-gradient-to-br from-[#5B21B6]/8 via-[#1a0a0a] to-[#4C1D95]/4 p-6 shadow-lg shadow-[#5B21B6]/15 backdrop-blur-sm transition-all duration-1000 ease-out ${
+            hasAnimated
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: hasAnimated ? "600ms" : "0ms" }}
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="rounded-full bg-gradient-to-br from-[#5B21B6]/30 to-[#4C1D95]/15 p-3 border border-[#5B21B6]/40">
@@ -759,7 +801,7 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Programming/Scripting</h3>
+              <h3 className="text-xl font-semibold text-white">Programming & Tooling</h3>
             </div>
             <div className="space-y-4">
               {[
@@ -850,7 +892,7 @@ export default function HomePage() {
                     <p className="text-sm md:text-lg text-[#FF6A00] font-semibold">Florida Southern College</p>
                   </div>
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#FF6A00]/20 text-[#FF6A00] border border-[#FF6A00]/30">
-                    October 2022 – Present
+                    October 2022 – December 2025
                   </span>
                 </div>
 
@@ -1190,8 +1232,8 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6">
-            <span className="hidden md:inline">Walkthroughs, notes, and lessons learned while breaking into boxes and sharpening my red-team mindset</span>
-            <span className="md:hidden">Penetration testing walkthroughs and OSCP-style write-ups</span>
+            <span className="hidden md:inline">Walkthroughs, notes, and lessons learned from penetration testing, security research, and hands-on labs</span>
+            <span className="md:hidden">Penetration testing walkthroughs and security write-ups</span>
           </p>
         </div>
 
@@ -1402,7 +1444,7 @@ export default function HomePage() {
             : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-6 md:gap-8 md:grid-cols-2 md:items-start">
           {/* Left: Contact Info & Links */}
           <div className="space-y-6 md:space-y-6 lg:pb-32">
             {/* Mobile Layout */}
@@ -1413,7 +1455,7 @@ export default function HomePage() {
                   <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
                 </h2>
                 <p className="mt-3 text-sm text-white/70">
-                  Whether it&apos;s red-team work, lab write-ups, or building tooling for offensive security,
+                  Whether it&apos;s penetration testing, security engineering, cloud infrastructure, or building security tooling,
                   I&apos;m always open to interesting problems and collaborations.
                 </p>
               </div>
@@ -1454,7 +1496,7 @@ export default function HomePage() {
                   <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
                 </h2>
                 <p className="mt-4 text-sm lg:text-base text-white/70 max-w-md">
-                  Whether it&apos;s red-team work, lab write-ups, or building tooling for offensive security,
+                  Whether it&apos;s penetration testing, security engineering, cloud infrastructure, or building security tooling,
                   I&apos;m always open to interesting problems and collaborations.
                 </p>
               </div>
@@ -1465,7 +1507,7 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>Lakeland, FL (US Eastern Time)</span>
+                  <span>St. Louis, MO (US Central Time)</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/70">
                   <svg className="h-5 w-5 text-[#FF6A00] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

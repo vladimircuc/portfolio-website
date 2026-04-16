@@ -37,7 +37,9 @@ export default function RootLayout({ children }) {
 
         <header className="sticky top-0 z-50 border-b border-white/5 bg-[#060606cc] backdrop-blur-xl shadow-[0_10px_30px_rgba(139,0,0,0.25)]">
           <nav className="mx-auto flex w-full max-w-[1600px] items-center gap-4 px-4 py-4 sm:px-6 lg:px-10 xl:px-16">
-            <BrandHome />
+            <div className="flex-shrink-0">
+              <BrandHome />
+            </div>
 
             <div className="ml-auto flex items-center gap-4">
               <HeaderNav />
@@ -45,7 +47,7 @@ export default function RootLayout({ children }) {
               <a
                 href="/Vladimir_Cuc_Resume.pdf"
                 download
-                className="group hidden items-center gap-2 rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-[#FF6A00] shadow-[0_0_25px_rgba(255,106,0,0.25)] transition md:inline-flex md:hover:border-[#FF6A00] md:hover:bg-[#FF6A00]/20"
+                className="group hidden items-center gap-2 rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-3 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-semibold uppercase tracking-wide text-[#FF6A00] shadow-[0_0_25px_rgba(255,106,0,0.25)] transition md:inline-flex md:hover:border-[#FF6A00] md:hover:bg-[#FF6A00]/20 whitespace-nowrap"
               >
                 Download Resume
                 <span className="relative h-4 w-3 overflow-hidden">
