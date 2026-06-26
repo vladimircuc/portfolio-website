@@ -55,14 +55,14 @@ export default function HomePage() {
   const [aboutAnimated, setAboutAnimated] = useState(false);
   const [certificationsAnimated, setCertificationsAnimated] = useState(false);
   const [experienceAnimated, setExperienceAnimated] = useState(false);
-  const [experienceItemsAnimated, setExperienceItemsAnimated] = useState([false, false, false]);
+  const [experienceItemsAnimated, setExperienceItemsAnimated] = useState([false, false, false, false]);
   const [projectsAnimated, setProjectsAnimated] = useState(false);
   const [blogAnimated, setBlogAnimated] = useState(false);
   const [contactAnimated, setContactAnimated] = useState(false);
   const [blogPosts, setBlogPosts] = useState([
     { title: "I Passed the OSCP on My First Attempt", subtitle: "", image: "", loading: true },
-    { title: "CLUE Proving Grounds Walkthrough", subtitle: "", image: "", loading: true },
-    { title: "Mzeeav PG Walkthrough", subtitle: "", image: "", loading: true },
+    { title: "From City Generator to RAT, My First Hands-On Malware Analysis", subtitle: "", image: "", loading: true },
+    { title: "CLUE PG Walkthrough", subtitle: "", image: "", loading: true },
   ]);
 
   const [progressWidths, setProgressWidths] = useState({
@@ -153,9 +153,10 @@ export default function HomePage() {
           if (entry.isIntersecting && !experienceAnimated) {
             setExperienceAnimated(true);
             // Animate items one at a time
-            setExperienceItemsAnimated([true, false, false]);
-            setTimeout(() => setExperienceItemsAnimated([true, true, false]), 200);
-            setTimeout(() => setExperienceItemsAnimated([true, true, true]), 400);
+            setExperienceItemsAnimated([true, false, false, false]);
+            setTimeout(() => setExperienceItemsAnimated([true, true, false, false]), 200);
+            setTimeout(() => setExperienceItemsAnimated([true, true, true, false]), 400);
+            setTimeout(() => setExperienceItemsAnimated([true, true, true, true]), 600);
           }
         });
       },
@@ -293,19 +294,12 @@ export default function HomePage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
-            const targetWidths = {
-              offensive: [88, 85, 82, 90, 86],
-              secops: [87, 85, 84, 82, 80],
-              cloud: [80, 86, 83, 78, 81],
-              programming: [91, 86, 88, 79, 82],
-            };
-
             setTimeout(() => {
               setProgressWidths({
-                offensive: targetWidths.offensive,
-                secops: targetWidths.secops,
-                cloud: targetWidths.cloud,
-                programming: targetWidths.programming,
+                offensive: [92, 90, 86, 84, 80],
+                secops: [90, 87, 85, 82, 80],
+                cloud: [88, 85, 82, 80, 80],
+                programming: [93, 89, 86, 82, 78],
               });
             }, 100);
           }
@@ -365,7 +359,7 @@ export default function HomePage() {
               <a
                 href="/Vladimir_Cuc_Resume.pdf"
                 download
-                className="group hidden items-center justify-center gap-2 rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#FF6A00] shadow-[0_0_25px_rgba(255,106,0,0.25)] transition md:inline-flex md:hover:border-[#FF6A00] md:hover:bg-[#FF6A00]/20"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#FF6A00] shadow-[0_0_25px_rgba(255,106,0,0.25)] transition hover:border-[#FF6A00] hover:bg-[#FF6A00]/20"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -464,7 +458,7 @@ export default function HomePage() {
                 My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. Over time, that curiosity became a structured approach to understanding real adversarial behavior, strengthening defenses, and bridging the gap between offensive testing and security engineering.
               </p>
               <p>
-                My work spans offensive security, security operations, and cloud infrastructure. I design realistic attack scenarios and map internal attack paths, but I also tune SIEM detections, investigate alerts, and harden identity and access controls. I enjoy analyzing infrastructure from both sides, finding where organizations fail and building the tooling to fix it.
+                My work spans offensive security, security operations, and secure software. I design realistic attack scenarios and map internal attack paths, but I also tune SIEM detections, investigate alerts, and build and harden production systems, including a multi-tenant client portal with database-level tenant isolation, OAuth hardening, and an SSRF guard. I enjoy analyzing infrastructure from both sides, finding where organizations fail and building the tooling to fix it.
               </p>
             </div>
 
@@ -685,17 +679,14 @@ export default function HomePage() {
             </div>
             <div className="space-y-4">
               {[
-                { name: "Active Directory Attacks", level: 88, index: 0 },
-                { name: "Web App Testing", level: 85, index: 1 },
-                { name: "Pivoting/Tunneling", level: 82, index: 2 },
-                { name: "Privilege Escalation (Linux/Windows)", level: 90, index: 3 },
-                { name: "Lateral Movement", level: 86, index: 4 },
+                { name: "Active Directory Attacks", index: 0 },
+                { name: "Privilege Escalation (Linux/Windows)", index: 1 },
+                { name: "Lateral Movement", index: 2 },
+                { name: "Web Application Testing", index: 3 },
+                { name: "Pivoting / Tunneling", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
-                  <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-white/90">{skill.name}</span>
-                    <span className="text-[#FF4444] font-semibold">{skill.level}%</span>
-                  </div>
+                  <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#8B0000]/20">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#8B0000] to-[#FF4444] transition-all duration-[2000ms] ease-out"
@@ -721,21 +712,18 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Security Operations</h3>
+              <h3 className="text-xl font-semibold text-white">Security Operations &amp; Detection</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "SIEM (Splunk)", level: 87, index: 0 },
-                { name: "Microsoft Defender", level: 85, index: 1 },
-                { name: "Incident Triage", level: 84, index: 2 },
-                { name: "Forensic Imaging", level: 82, index: 3 },
-                { name: "Log Analysis", level: 80, index: 4 },
+                { name: "SIEM (Splunk / SPL)", index: 0 },
+                { name: "Microsoft Defender EDR", index: 1 },
+                { name: "Incident Triage & Response", index: 2 },
+                { name: "MITRE ATT&CK", index: 3 },
+                { name: "Log Analysis & Forensics", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
-                  <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-white/90">{skill.name}</span>
-                    <span className="text-[#FF6A00] font-semibold">{skill.level}%</span>
-                  </div>
+                  <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#FF6A00]/20">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#FF6A00] to-[#FFAA44] transition-all duration-[2000ms] ease-out"
@@ -761,21 +749,18 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Cloud & Identity</h3>
+              <h3 className="text-xl font-semibold text-white">Cloud, Identity &amp; AppSec</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "Azure Fundamentals", level: 80, index: 0 },
-                { name: "Identity & Access Management", level: 86, index: 1 },
-                { name: "Active Directory Administration", level: 83, index: 2 },
-                { name: "Security Compliance (SC-900)", level: 78, index: 3 },
-                { name: "Endpoint Management", level: 81, index: 4 },
+                { name: "Identity & Access Management", index: 0 },
+                { name: "OAuth & Web App Security", index: 1 },
+                { name: "Conditional Access", index: 2 },
+                { name: "Azure (AZ-900)", index: 3 },
+                { name: "Secrets Management", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
-                  <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-white/90">{skill.name}</span>
-                    <span className="text-[#60A5FA] font-semibold">{skill.level}%</span>
-                  </div>
+                  <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#1D4ED8]/15">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#60A5FA] transition-all duration-[2000ms] ease-out"
@@ -805,17 +790,14 @@ export default function HomePage() {
             </div>
             <div className="space-y-4">
               {[
-                { name: "Python", level: 91, index: 0 },
-                { name: "PowerShell", level: 86, index: 1 },
-                { name: "Bash", level: 88, index: 2 },
-                { name: "Java", level: 79, index: 3 },
-                { name: "JavaScript", level: 82, index: 4 },
+                { name: "Python", index: 0 },
+                { name: "Bash", index: 1 },
+                { name: "PowerShell", index: 2 },
+                { name: "JavaScript / TypeScript", index: 3 },
+                { name: "SQL", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
-                  <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-white/90">{skill.name}</span>
-                    <span className="text-[#8B5CF6] font-semibold">{skill.level}%</span>
-                  </div>
+                  <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#5B21B6]/15">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#5B21B6] to-[#8B5CF6] transition-all duration-[2000ms] ease-out"
@@ -862,9 +844,87 @@ export default function HomePage() {
 
           {/* Experience Items */}
           <div className="space-y-12">
-            {/* Job 1: Help Desk Support Technician */}
+            {/* Job 1: Web Systems & Automation Engineer, Posted Social */}
             <div className={`relative transition-all duration-1000 ease-out md:pl-20 ${
               experienceItemsAnimated[0]
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+            >
+              {/* Timeline Marker - Circle - Desktop */}
+              <div className="absolute left-0 md:left-4 top-6 hidden md:block">
+                <div className="w-8 h-8 bg-gradient-to-br from-[#FF6A00] to-[#8B0000] rounded-full border-2 border-[#0D0D0D] shadow-lg shadow-[#FF6A00]/30" />
+              </div>
+
+              {/* Timeline Marker - Mobile (Top of card) */}
+              <div className="absolute left-1/2 md:hidden -top-3 -translate-x-1/2 z-10">
+                <div className="w-6 h-6 bg-gradient-to-br from-[#FF6A00] to-[#8B0000] transform rotate-45 border-2 border-[#0D0D0D] shadow-lg shadow-[#FF6A00]/30" />
+              </div>
+
+              {/* Timeline Marker - Mobile (Bottom of card) */}
+              <div className="absolute left-1/2 md:hidden -bottom-3 -translate-x-1/2 z-10">
+                <div className="w-6 h-6 bg-gradient-to-br from-[#FF6A00] to-[#8B0000] transform rotate-45 border-2 border-[#0D0D0D] shadow-lg shadow-[#FF6A00]/30" />
+              </div>
+
+              {/* Job Card */}
+              <div className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#0a0a0a] to-[#1a0a0a] p-4 md:p-8 shadow-lg hover:shadow-xl hover:shadow-[#FF6A00]/20 transition-all duration-300 hover:-translate-y-2 md:w-full">
+                <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-3 mb-4">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-lg md:text-2xl font-bold text-white mb-1">Web Systems &amp; Automation Engineer</h3>
+                    <p className="text-sm md:text-lg text-[#FF6A00] font-semibold">Posted Social</p>
+                  </div>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#FF6A00]/20 text-[#FF6A00] border border-[#FF6A00]/30">
+                    February 2026 – Present
+                  </span>
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <p className="hidden md:block text-sm font-semibold text-white/90 mb-3">Key Responsibilities</p>
+                  <ul className="space-y-2 text-white/80 text-xs md:text-sm leading-relaxed">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF6A00] mt-1.5">▸</span>
+                      <span className="md:inline">
+                        <span className="md:hidden">Build and secure a multi-tenant client portal for 50+ clients and 100+ users.</span>
+                        <span className="hidden md:inline">Build and secure a multi-tenant client portal in Next.js and TypeScript on Supabase and Vercel, serving 50+ clients and 100+ users, owning the full technical and security side.</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF6A00] mt-1.5">▸</span>
+                      <span className="md:inline">
+                        <span className="md:hidden">Enforce tenant isolation with Postgres RLS, least-privilege RBAC, and passwordless auth.</span>
+                        <span className="hidden md:inline">Enforce tenant isolation with Postgres Row-Level Security and a tiered least-privilege access model, with passwordless authentication (Google OAuth and magic links) scoped per client.</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF6A00] mt-1.5">▸</span>
+                      <span className="md:inline">
+                        <span className="md:hidden">Harden OAuth flows with signed state and PKCE, and add a server-side SSRF guard.</span>
+                        <span className="hidden md:inline">Harden the social-account OAuth flows against forgery with server-signed state and PKCE, add a server-side SSRF egress guard, and keep secrets server-side with Supabase Vault and scoped API credentials.</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF6A00] mt-1.5">▸</span>
+                      <span className="md:inline">
+                        <span className="md:hidden">Build 30+ automation workflows across 20 client environments with Python API integrations.</span>
+                        <span className="hidden md:inline">Build 30+ automation workflows across 20 client environments, with Python integrations to Meta and platform APIs for event tracking and conversion attribution.</span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="hidden md:flex flex-wrap gap-2">
+                  {["Next.js", "Supabase", "Postgres RLS", "OAuth Security", "RBAC", "SSRF Defense", "AppSec", "Automation"].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-full text-xs font-medium bg-[#8B0000]/20 text-[#FF6A00] border border-[#8B0000]/30">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Job 2: Help Desk Support Technician */}
+            <div className={`relative transition-all duration-1000 ease-out md:pl-20 ${
+              experienceItemsAnimated[1]
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-8"
             }`}
@@ -909,8 +969,8 @@ export default function HomePage() {
                     <li className="flex items-start gap-2">
                       <span className="text-[#FF6A00] mt-1.5">▸</span>
                       <span className="md:inline">
-                        <span className="md:hidden">Active Directory user management and secure authentication workflows.</span>
-                        <span className="hidden md:inline">Performed Active Directory user management, permission adjustments, and secure authentication workflows, reinforcing enterprise identity-security fundamentals.</span>
+                        <span className="md:hidden">Maintained Conditional Access assignments under supervision and supported MFA and password recovery.</span>
+                        <span className="hidden md:inline">Maintained Conditional Access user assignments under senior engineering supervision, handled password resets and MFA enrollment support, and routed privileged-access requests through the campus ticketing workflow.</span>
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -931,7 +991,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="hidden md:flex flex-wrap gap-2">
-                  {["Active Directory", "Identity & Access Management", "Technical Support", "Troubleshooting", "IT Infrastructure"].map((skill) => (
+                  {["Conditional Access", "Identity & Access Management", "MFA Support", "Technical Support", "Troubleshooting"].map((skill) => (
                     <span key={skill} className="px-3 py-1 rounded-full text-xs font-medium bg-[#8B0000]/20 text-[#FF6A00] border border-[#8B0000]/30">
                       {skill}
                     </span>
@@ -940,9 +1000,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Job 2: Cybersecurity Intern */}
+            {/* Job 3: Cybersecurity Intern */}
             <div className={`relative transition-all duration-1000 ease-out md:pl-20 ${
-              experienceItemsAnimated[1]
+              experienceItemsAnimated[2]
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-8"
             }`}
@@ -1020,9 +1080,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Job 3: Software Engineer Intern */}
+            {/* Job 4: Software Engineer Intern */}
             <div className={`relative transition-all duration-1000 ease-out md:pl-20 ${
-              experienceItemsAnimated[2]
+              experienceItemsAnimated[3]
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-8"
             }`}
@@ -1115,7 +1175,7 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6">
-            Open-source security tools and automation scripts
+            A production secure-portal demo, open-source security tools, and hands-on labs
           </p>
         </div>
 
@@ -1199,6 +1259,106 @@ export default function HomePage() {
               </a>
             </div>
           </div>
+
+          {/* Relay Project */}
+          <div className={`group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#0a0a0a] to-[#1a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#FF6A00]/20 hover:-translate-y-2 flex flex-col ${
+            projectsAnimated
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: projectsAnimated ? "0ms" : "0ms" }}
+          >
+            <div className="relative h-52 md:h-64 w-full bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 overflow-hidden">
+              <img
+                src="/relay.webp"
+                alt="Relay secure analytics portal with encryption and security overlays"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            <div className="p-4 md:p-5 flex flex-col flex-grow">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Relay</h3>
+              <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-4 flex-grow">
+                <span className="md:hidden">A real, working multi-tenant client analytics portal, security-hardened and built end to end with Claude Code.</span>
+                <span className="hidden md:inline">A real, working multi-tenant client analytics portal, the open-source twin of a product I run in production. Security-hardened and built end to end with Claude Code, with a public Security Lab of live attack and defense demos.</span>
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <a
+                  href="https://relay.vladimircuc.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-3 py-2 text-sm font-semibold text-[#FF6A00] transition-all hover:bg-[#FF6A00]/20 hover:border-[#FF6A00] hover:shadow-lg hover:shadow-[#FF6A00]/25 w-fit"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a
+                  href="https://relay.vladimircuc.com/security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white/80 transition-all hover:bg-white/10 hover:border-white/30 w-fit"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z" />
+                  </svg>
+                  Security Lab
+                </a>
+                <a
+                  href="https://github.com/vladimircuc/relay-portal-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white/80 transition-all hover:bg-white/10 hover:border-white/30 w-fit"
+                >
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Malware Analysis Lab Project */}
+          <div className={`group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#0a0a0a] to-[#1a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#8B0000]/20 hover:-translate-y-2 flex flex-col ${
+            projectsAnimated
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: projectsAnimated ? "200ms" : "0ms" }}
+          >
+            <div className="relative h-52 md:h-64 w-full bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 overflow-hidden">
+              <img
+                src="/malware-lab.webp"
+                alt="Malware analysis lab dashboard analyzing an AsyncRAT sample"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            <div className="p-4 md:p-5 flex flex-col flex-grow">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Malware Analysis Lab, AsyncRAT</h3>
+              <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-4 flex-grow">
+                <span className="md:hidden">Isolated FLARE VM and REMnux lab where I analyzed a real AsyncRAT sample end to end.</span>
+                <span className="hidden md:inline">Isolated FLARE VM and REMnux lab where I reversed a real AsyncRAT sample. Static analysis with dnSpy and Detect It Easy, then dynamic analysis with Process Monitor and Wireshark to surface process injection, C2, and registry persistence.</span>
+              </p>
+
+              <a
+                href="https://medium.com/@vladimircuc007/from-city-generator-to-rat-my-first-hands-on-malware-analysis-926296868147"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-[#FF6A00]/40 bg-[#FF6A00]/10 px-4 py-2 text-sm font-semibold text-[#FF6A00] transition-all hover:bg-[#FF6A00]/20 hover:border-[#FF6A00] hover:shadow-lg hover:shadow-[#FF6A00]/25 mt-auto w-fit"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-.28 6.42-2.6 6.42-2.33 0-2.61-2.88-2.61-6.42s.29-6.42 2.6-6.42S20.96 8.46 20.96 12zM24 12c0 3.17-.56 5.75-1.25 5.75S21.5 15.17 21.5 12s.56-5.75 1.25-5.75S24 8.83 24 12z" />
+                </svg>
+                Read the Writeups
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* View All Button */}
@@ -1213,6 +1373,64 @@ export default function HomePage() {
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="ai" className="scroll-mt-32 py-10 md:py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 relative inline-block">
+            Security &amp; AI
+            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#5B21B6] to-[#FF6A00]" />
+          </h2>
+          <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6 max-w-2xl mx-auto">
+            AI is part of how I build and how I defend. I use it to move fast, then put the security boundaries around it that teams often skip, and I bring an attacker&apos;s eye to AI systems themselves.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          {/* QUORRA panel */}
+          <a
+            href="https://github.com/vladimircuc/QUORRA-Asera-Custom-LLM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-2xl border border-white/10 aspect-[3/2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF6A00]/40 hover:shadow-xl hover:shadow-[#FF6A00]/20"
+          >
+            <img src="/quorra.webp" alt="QUORRA retrieval-augmented AI assistant" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#FF6A00] mb-1">Securing AI</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white">QUORRA</h3>
+              <p className="text-white/75 text-sm mt-1">RAG assistant with authenticated APIs, scoped retrieval, and tool-calling guardrails.</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#FF6A00]">
+                View on GitHub
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          {/* MIDL panel */}
+          <a
+            href="https://openreview.net/forum?id=SifPKZmav5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-2xl border border-white/10 aspect-[3/2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF6A00]/40 hover:shadow-xl hover:shadow-[#FF6A00]/20"
+          >
+            <img src="/midl.webp" alt="MIDL 2025 foundation-model thyroid cytopathology research" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#FF6A00] mb-1">AI Research</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white">MIDL 2025 Publication</h3>
+              <p className="text-white/75 text-sm mt-1">Peer-reviewed foundation-model research on interpretability, finding where models fail.</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#FF6A00]">
+                Read the paper
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </div>
           </a>
         </div>
       </section>
@@ -1300,7 +1518,7 @@ export default function HomePage() {
 
           {/* Blog Post 2: CLUE Proving Grounds */}
           <a
-            href="https://medium.com/@vladimircuc007/clue-pg-walkthrough-a365256d50e4"
+            href="https://medium.com/@vladimircuc007/from-city-generator-to-rat-my-first-hands-on-malware-analysis-926296868147"
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative block rounded-xl border-l-4 border-[#8B0000] bg-gradient-to-r from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#8B0000]/20 hover:border-[#FF4444] ${
@@ -1330,7 +1548,7 @@ export default function HomePage() {
               )}
               <div className="flex-grow min-w-0">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-[#FF4444] font-semibold uppercase tracking-wider">Walkthrough</span>
+                  <span className="text-xs text-[#FF4444] font-semibold uppercase tracking-wider">Malware Analysis</span>
                   <span className="text-xs text-white/40">•</span>
                   <span className="text-xs text-white/50">Medium</span>
                   {blogPosts[1].readingTime && (
@@ -1360,7 +1578,7 @@ export default function HomePage() {
 
           {/* Blog Post 3: Pelican PG Walkthrough */}
           <a
-            href="https://medium.com/@vladimircuc007/pelican-pg-walkthrough-55d4a8dd57b5"
+            href="https://medium.com/@vladimircuc007/clue-pg-walkthrough-a365256d50e4"
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative block rounded-xl border-l-4 border-[#5B21B6] bg-gradient-to-r from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#5B21B6]/20 hover:border-[#8B5CF6] ${

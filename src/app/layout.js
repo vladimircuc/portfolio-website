@@ -6,10 +6,28 @@ import { Footer } from "../components/Footer";
 import AnalyticsTracker from "../components/AnalyticsTracker";
 
 export const metadata = {
-  title: "Vladimir Cuc | Portfolio",
-  description: "OSCP-certified penetration tester portfolio",
+  metadataBase: new URL("https://vladimircuc.com"),
+  title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+  description:
+    "OSCP+ and Security+ certified security engineer and penetration tester. Fortune 100 SOC internship, production application security (Postgres RLS, OAuth hardening, SSRF defense), and open-source offensive tooling.",
   icons: {
     icon: "/icon.png", // lives in /public
+  },
+  openGraph: {
+    type: "website",
+    url: "https://vladimircuc.com",
+    siteName: "Vladimir Cuc",
+    title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+    description:
+      "OSCP+ and Security+ certified. SOC internship, production application security, and open-source offensive tooling, plus a live, interactive Security Lab.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Vladimir Cuc, Security Engineer & Penetration Tester, OSCP+ and Security+ certified" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+    description:
+      "OSCP+ and Security+ certified. SOC internship, production application security, and open-source offensive tooling.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -18,7 +36,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" style={{ colorScheme: 'dark' }}>
-      <body className="min-h-screen bg-[#0D0D0D] text-slate-100 antialiased overflow-x-hidden">
+      <body suppressHydrationWarning className="min-h-screen bg-[#0D0D0D] text-slate-100 antialiased overflow-x-hidden">
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
