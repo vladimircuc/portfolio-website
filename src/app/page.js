@@ -61,13 +61,13 @@ export default function HomePage() {
   const [contactAnimated, setContactAnimated] = useState(false);
   const [blogPosts, setBlogPosts] = useState([
     { title: "I Passed the OSCP on My First Attempt", subtitle: "", image: "", loading: true },
-    { title: "From City Generator to RAT, My First Hands-On Malware Analysis", subtitle: "", image: "", loading: true },
+    { title: "MZEEAV PG Walkthrough", subtitle: "", image: "", loading: true },
     { title: "CLUE PG Walkthrough", subtitle: "", image: "", loading: true },
   ]);
 
   const [progressWidths, setProgressWidths] = useState({
     offensive: [0, 0, 0, 0, 0],
-    secops: [0, 0, 0, 0, 0],
+    tooling: [0, 0, 0, 0, 0],
     cloud: [0, 0, 0, 0, 0],
     programming: [0, 0, 0, 0, 0],
   });
@@ -297,7 +297,7 @@ export default function HomePage() {
             setTimeout(() => {
               setProgressWidths({
                 offensive: [92, 90, 86, 84, 80],
-                secops: [90, 87, 85, 82, 80],
+                tooling: [90, 87, 85, 82, 80],
                 cloud: [88, 85, 82, 80, 80],
                 programming: [93, 89, 86, 82, 78],
               });
@@ -455,10 +455,10 @@ export default function HomePage() {
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[#8B0000]/10 via-[#FF6A00]/5 to-[#8B0000]/10 blur-2xl -z-10" />
               
               <p>
-                My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. Over time, that curiosity became a structured approach to understanding real adversarial behavior, strengthening defenses, and bridging the gap between offensive testing and security engineering.
+                My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. That curiosity turned into an obsession with offensive security: grinding labs late into the night, chaining exploits, and learning to move through a network the way a real adversary would. It led me to the OSCP, which I passed on my first attempt, and it still shapes how I approach every engagement.
               </p>
               <p>
-                My work spans offensive security, security operations, and secure software. I design realistic attack scenarios and map internal attack paths, but I also tune SIEM detections, investigate alerts, and build and harden production systems, including a multi-tenant client portal with database-level tenant isolation, OAuth hardening, and an SSRF guard. I enjoy analyzing infrastructure from both sides, finding where organizations fail and building the tooling to fix it.
+                I live in the attacker&apos;s mindset, enumerating aggressively, hunting misconfigurations, and mapping Active Directory attack paths from initial foothold to full domain compromise. I focus on privilege escalation, lateral movement, and pivoting, and I write my own tooling to make recon and exploitation faster and cleaner. When I&apos;m not in a lab, I&apos;m documenting walkthroughs and sharpening the tradecraft that turns a single weak point into complete control.
               </p>
             </div>
 
@@ -698,7 +698,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Security Operations Card - Orange Theme */}
+          {/* Offensive Tooling Card - Orange Theme */}
           <div className={`rounded-2xl border border-[#FF6A00]/30 bg-gradient-to-br from-[#FF6A00]/10 via-[#1a0a0a] to-[#FF6A00]/5 p-6 shadow-lg shadow-[#FF6A00]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
             hasAnimated
               ? "opacity-100 translate-y-0"
@@ -709,25 +709,25 @@ export default function HomePage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="rounded-full bg-gradient-to-br from-[#FF6A00]/40 to-[#FF6A00]/20 p-3 border border-[#FF6A00]/50">
                 <svg className="w-6 h-6 text-[#FF6A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Security Operations &amp; Detection</h3>
+              <h3 className="text-xl font-semibold text-white">Offensive Tooling &amp; Tradecraft</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "SIEM (Splunk / SPL)", index: 0 },
-                { name: "Microsoft Defender EDR", index: 1 },
-                { name: "Incident Triage & Response", index: 2 },
-                { name: "MITRE ATT&CK", index: 3 },
-                { name: "Log Analysis & Forensics", index: 4 },
+                { name: "BloodHound / SharpHound", index: 0 },
+                { name: "Impacket / NetExec", index: 1 },
+                { name: "Burp Suite", index: 2 },
+                { name: "Nmap / RustScan", index: 3 },
+                { name: "Metasploit / Sliver C2", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
                   <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-[#FF6A00]/20">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#FF6A00] to-[#FFAA44] transition-all duration-[2000ms] ease-out"
-                      style={{ width: `${progressWidths.secops[skill.index]}%` }}
+                      style={{ width: `${progressWidths.tooling[skill.index]}%` }}
                     />
                   </div>
                 </div>
@@ -1516,9 +1516,9 @@ export default function HomePage() {
             </div>
           </a>
 
-          {/* Blog Post 2: CLUE Proving Grounds */}
+          {/* Blog Post 2: MZEEAV PG Walkthrough */}
           <a
-            href="https://medium.com/@vladimircuc007/from-city-generator-to-rat-my-first-hands-on-malware-analysis-926296868147"
+            href="https://medium.com/@vladimircuc007/mzeeav-pg-walkthrough-b086b9cb9c7f"
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative block rounded-xl border-l-4 border-[#8B0000] bg-gradient-to-r from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a] overflow-hidden shadow-lg transition-all duration-1000 ease-out hover:shadow-xl hover:shadow-[#8B0000]/20 hover:border-[#FF4444] ${
@@ -1548,7 +1548,7 @@ export default function HomePage() {
               )}
               <div className="flex-grow min-w-0">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-[#FF4444] font-semibold uppercase tracking-wider">Malware Analysis</span>
+                  <span className="text-xs text-[#FF4444] font-semibold uppercase tracking-wider">Walkthrough</span>
                   <span className="text-xs text-white/40">•</span>
                   <span className="text-xs text-white/50">Medium</span>
                   {blogPosts[1].readingTime && (
