@@ -67,7 +67,7 @@ export default function HomePage() {
 
   const [progressWidths, setProgressWidths] = useState({
     offensive: [0, 0, 0, 0, 0],
-    tooling: [0, 0, 0, 0, 0],
+    ai: [0, 0, 0, 0, 0],
     cloud: [0, 0, 0, 0, 0],
     programming: [0, 0, 0, 0, 0],
   });
@@ -297,7 +297,7 @@ export default function HomePage() {
             setTimeout(() => {
               setProgressWidths({
                 offensive: [92, 90, 86, 84, 80],
-                tooling: [90, 87, 85, 82, 80],
+                ai: [90, 88, 86, 84, 82],
                 cloud: [88, 85, 82, 80, 80],
                 programming: [93, 89, 86, 82, 78],
               });
@@ -346,12 +346,12 @@ export default function HomePage() {
                 OSCP+ &amp; Security+ Certified
               </p>
               <p className="mt-2 text-lg text-white/70">
-                Security Engineer &amp; Penetration Tester
+                AI Security Engineer &amp; Penetration Tester
               </p>
             </div>
 
             <p className="text-base leading-relaxed text-white/80 sm:text-lg">
-              I&apos;m passionate about cybersecurity, from offensive security and penetration testing to security operations and cloud infrastructure. I focus on Active Directory attack paths, SIEM-driven detection, and building tooling that strengthens organizational defenses.
+              I work both sides of security, from Active Directory attack paths to hands-on SOC triage at a Fortune 100. My focus now is AI security: building LLM systems and engineering the controls that keep them safe in production.
             </p>
 
             {/* Buttons */}
@@ -459,6 +459,9 @@ export default function HomePage() {
               </p>
               <p>
                 I live in the attacker&apos;s mindset, enumerating aggressively, hunting misconfigurations, and mapping Active Directory attack paths from initial foothold to full domain compromise. I focus on privilege escalation, lateral movement, and pivoting, and I write my own tooling to make recon and exploitation faster and cleaner. When I&apos;m not in a lab, I&apos;m documenting walkthroughs and sharpening the tradecraft that turns a single weak point into complete control.
+              </p>
+              <p>
+                Increasingly, my work sits where security meets AI. At Posted Social I shipped a public AI product that queries six AI engines, along with its evaluation harness and its abuse and spend controls. I owned the backend of QUORRA, a RAG assistant with scoped retrieval and tool-calling guardrails, and I published peer-reviewed research fine-tuning a pathology foundation model at MIDL 2025. I approach AI the way I approach any target: learn how it breaks, then build the controls that hold.
               </p>
             </div>
 
@@ -655,8 +658,8 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6">
-            <span className="md:hidden">Offensive security, security operations, and cloud</span>
-            <span className="hidden md:inline">A snapshot of the technologies I use across penetration testing, security operations, cloud infrastructure, and automation</span>
+            <span className="md:hidden">Offensive security, AI security, and cloud</span>
+            <span className="hidden md:inline">A snapshot of the technologies I use across penetration testing, AI security, cloud infrastructure, and automation</span>
           </p>
         </div>
 
@@ -698,8 +701,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Offensive Tooling Card - Orange Theme */}
-          <div className={`rounded-2xl border border-[#FF6A00]/30 bg-gradient-to-br from-[#FF6A00]/10 via-[#1a0a0a] to-[#FF6A00]/5 p-6 shadow-lg shadow-[#FF6A00]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
+          {/* AI Security & Engineering Card - Violet Theme */}
+          <div className={`rounded-2xl border border-[#7C3AED]/30 bg-gradient-to-br from-[#7C3AED]/10 via-[#1a0a0a] to-[#7C3AED]/5 p-6 shadow-lg shadow-[#7C3AED]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
             hasAnimated
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
@@ -707,27 +710,27 @@ export default function HomePage() {
           style={{ transitionDelay: hasAnimated ? "200ms" : "0ms" }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="rounded-full bg-gradient-to-br from-[#FF6A00]/40 to-[#FF6A00]/20 p-3 border border-[#FF6A00]/50">
-                <svg className="w-6 h-6 text-[#FF6A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <div className="rounded-full bg-gradient-to-br from-[#7C3AED]/40 to-[#7C3AED]/20 p-3 border border-[#7C3AED]/50">
+                <svg className="w-6 h-6 text-[#C084FC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white">Offensive Tooling &amp; Tradecraft</h3>
+              <h3 className="text-xl font-semibold text-white">AI Security &amp; Engineering</h3>
             </div>
             <div className="space-y-4">
               {[
-                { name: "BloodHound / SharpHound", index: 0 },
-                { name: "Impacket / NetExec", index: 1 },
-                { name: "Burp Suite", index: 2 },
-                { name: "Nmap / RustScan", index: 3 },
-                { name: "Metasploit / Sliver C2", index: 4 },
+                { name: "LLM Security & Guardrails", index: 0 },
+                { name: "RAG Pipelines & Vector Search", index: 1 },
+                { name: "Agentic Tool-Calling Systems", index: 2 },
+                { name: "OpenAI / Anthropic / Gemini APIs", index: 3 },
+                { name: "LLM Evaluation & Benchmarking", index: 4 },
               ].map((skill) => (
                 <div key={skill.name}>
                   <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-[#FF6A00]/20">
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-[#7C3AED]/20">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#FF6A00] to-[#FFAA44] transition-all duration-[2000ms] ease-out"
-                      style={{ width: `${progressWidths.tooling[skill.index]}%` }}
+                      className="h-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#C084FC] transition-all duration-[2000ms] ease-out"
+                      style={{ width: `${progressWidths.ai[skill.index]}%` }}
                     />
                   </div>
                 </div>
@@ -772,8 +775,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Programming & Tooling Card - Purple Theme */}
-          <div className={`rounded-2xl border border-[#5B21B6]/25 bg-gradient-to-br from-[#5B21B6]/8 via-[#1a0a0a] to-[#4C1D95]/4 p-6 shadow-lg shadow-[#5B21B6]/15 backdrop-blur-sm transition-all duration-1000 ease-out ${
+          {/* Programming & Tooling Card - Orange Theme */}
+          <div className={`rounded-2xl border border-[#FF6A00]/30 bg-gradient-to-br from-[#FF6A00]/10 via-[#1a0a0a] to-[#FF6A00]/5 p-6 shadow-lg shadow-[#FF6A00]/20 backdrop-blur-sm transition-all duration-1000 ease-out ${
             hasAnimated
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-8"
@@ -781,8 +784,8 @@ export default function HomePage() {
           style={{ transitionDelay: hasAnimated ? "600ms" : "0ms" }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="rounded-full bg-gradient-to-br from-[#5B21B6]/30 to-[#4C1D95]/15 p-3 border border-[#5B21B6]/40">
-                <svg className="w-6 h-6 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="rounded-full bg-gradient-to-br from-[#FF6A00]/40 to-[#FF6A00]/20 p-3 border border-[#FF6A00]/50">
+                <svg className="w-6 h-6 text-[#FF6A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
@@ -798,9 +801,9 @@ export default function HomePage() {
               ].map((skill) => (
                 <div key={skill.name}>
                   <span className="block text-sm text-white/90 mb-2">{skill.name}</span>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-[#5B21B6]/15">
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-[#FF6A00]/20">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#5B21B6] to-[#8B5CF6] transition-all duration-[2000ms] ease-out"
+                      className="h-full rounded-full bg-gradient-to-r from-[#FF6A00] to-[#FFAA44] transition-all duration-[2000ms] ease-out"
                       style={{ width: `${progressWidths.programming[skill.index]}%` }}
                     />
                   </div>
@@ -830,8 +833,8 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#8B0000] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6">
-            <span className="hidden md:inline">A timeline shaped by security, engineering, and real-world problem-solving</span>
-            <span className="md:hidden">Offensive security and engineering experience in one place</span>
+            <span className="hidden md:inline">A timeline shaped by security, AI, and real-world engineering</span>
+            <span className="md:hidden">Security, AI, and engineering experience in one place</span>
           </p>
         </div>
 
@@ -891,6 +894,13 @@ export default function HomePage() {
                     <li className="flex items-start gap-2">
                       <span className="text-[#FF6A00] mt-1.5">▸</span>
                       <span className="md:inline">
+                        <span className="md:hidden">Shipped a public AI product that queries six AI engines, with an eval harness and spend controls.</span>
+                        <span className="hidden md:inline">Built and shipped a public AI visibility audit that queries six AI engines, including ChatGPT, Claude, and Gemini, with an evaluation harness for model selection and Turnstile plus an atomic daily spend cap guarding the paid route.</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF6A00] mt-1.5">▸</span>
+                      <span className="md:inline">
                         <span className="md:hidden">Enforce tenant isolation with Postgres RLS, least-privilege RBAC, and passwordless auth.</span>
                         <span className="hidden md:inline">Enforce tenant isolation with Postgres Row-Level Security and a tiered least-privilege access model, with passwordless authentication (Google OAuth and magic links) scoped per client.</span>
                       </span>
@@ -905,15 +915,15 @@ export default function HomePage() {
                     <li className="flex items-start gap-2">
                       <span className="text-[#FF6A00] mt-1.5">▸</span>
                       <span className="md:inline">
-                        <span className="md:hidden">Build 30+ automation workflows across 20 client environments with Python API integrations.</span>
-                        <span className="hidden md:inline">Build 30+ automation workflows across 20 client environments, with Python integrations to Meta and platform APIs for event tracking and conversion attribution.</span>
+                        <span className="md:hidden">Build 30+ automation workflows and scheduled AI tasks that build weekly client reports.</span>
+                        <span className="hidden md:inline">Build 30+ automation workflows across 20 client environments with Python API integrations, plus scheduled AI tasks that build the weekly client campaign reports, replacing 3 to 4 hours of manual work every week.</span>
                       </span>
                     </li>
                   </ul>
                 </div>
 
                 <div className="hidden md:flex flex-wrap gap-2">
-                  {["Next.js", "Supabase", "Postgres RLS", "OAuth Security", "RBAC", "SSRF Defense", "AppSec", "Automation"].map((skill) => (
+                  {["LLM Integration", "LLM Evaluation", "Next.js", "Supabase", "Postgres RLS", "OAuth Security", "RBAC", "SSRF Defense", "AppSec", "Automation"].map((skill) => (
                     <span key={skill} className="px-3 py-1 rounded-full text-xs font-medium bg-[#8B0000]/20 text-[#FF6A00] border border-[#8B0000]/30">
                       {skill}
                     </span>
@@ -1384,11 +1394,33 @@ export default function HomePage() {
             <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-[#5B21B6] to-[#FF6A00]" />
           </h2>
           <p className="text-sm md:text-lg text-white/70 mt-4 md:mt-6 max-w-2xl mx-auto">
-            AI is part of how I build and how I defend. I use it to move fast, then put the security boundaries around it that teams often skip, and I bring an attacker&apos;s eye to AI systems themselves.
+            AI is part of how I build and how I defend. I ship LLM systems with the security boundaries teams often skip, from scoped retrieval and tool-calling guardrails to abuse and spend controls, and I bring an attacker&apos;s eye to AI systems themselves.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          {/* AI Visibility Audit panel */}
+          <a
+            href="https://ai-audit.posted-social.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-2xl border border-white/10 aspect-[3/2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF6A00]/40 hover:shadow-xl hover:shadow-[#FF6A00]/20"
+          >
+            <img src="/ai-audit.webp" alt="Six AI engines sending recommendations to businesses pinned across a city" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#FF6A00] mb-1">Live AI Product</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white">AI Visibility Audit</h3>
+              <p className="text-white/75 text-sm mt-1">Asks six AI engines who they recommend for a local business, with Turnstile and an atomic spend cap in front of every audit.</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#FF6A00]">
+                Try it live
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </div>
+          </a>
+
           {/* QUORRA panel */}
           <a
             href="https://github.com/vladimircuc/QUORRA-Asera-Custom-LLM"
@@ -1411,12 +1443,12 @@ export default function HomePage() {
             </div>
           </a>
 
-          {/* MIDL panel */}
+          {/* MIDL panel, centered alone on the second row */}
           <a
             href="https://openreview.net/forum?id=SifPKZmav5"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-2xl border border-white/10 aspect-[3/2] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF6A00]/40 hover:shadow-xl hover:shadow-[#FF6A00]/20"
+            className="group relative block overflow-hidden rounded-2xl border border-white/10 aspect-[3/2] md:col-span-2 md:justify-self-center md:w-[calc(50%-0.75rem)] shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FF6A00]/40 hover:shadow-xl hover:shadow-[#FF6A00]/20"
           >
             <img src="/midl.webp" alt="MIDL 2025 foundation-model thyroid cytopathology research" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-transparent" />

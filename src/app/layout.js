@@ -7,9 +7,9 @@ import AnalyticsTracker from "../components/AnalyticsTracker";
 
 export const metadata = {
   metadataBase: new URL("https://vladimircuc.com"),
-  title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+  title: "Vladimir Cuc | AI Security Engineer & Penetration Tester",
   description:
-    "OSCP+ and Security+ certified security engineer and penetration tester. Fortune 100 SOC internship, production application security (Postgres RLS, OAuth hardening, SSRF defense), and open-source offensive tooling.",
+    "OSCP+ and Security+ certified AI security engineer and penetration tester. Builds and secures LLM systems, with Fortune 100 SOC experience, peer-reviewed AI research (MIDL 2025), and production application security.",
   icons: {
     icon: "/icon.png", // lives in /public
   },
@@ -17,16 +17,16 @@ export const metadata = {
     type: "website",
     url: "https://vladimircuc.com",
     siteName: "Vladimir Cuc",
-    title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+    title: "Vladimir Cuc | AI Security Engineer & Penetration Tester",
     description:
-      "OSCP+ and Security+ certified. SOC internship, production application security, and open-source offensive tooling, plus a live, interactive Security Lab.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Vladimir Cuc, Security Engineer & Penetration Tester, OSCP+ and Security+ certified" }],
+      "OSCP+ and Security+ certified. AI security and LLM systems, Fortune 100 SOC experience, application security, and open-source offensive tooling, plus a live, interactive Security Lab.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Vladimir Cuc, AI Security Engineer & Penetration Tester, OSCP+ and Security+ certified" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vladimir Cuc | Security Engineer & Penetration Tester",
+    title: "Vladimir Cuc | AI Security Engineer & Penetration Tester",
     description:
-      "OSCP+ and Security+ certified. SOC internship, production application security, and open-source offensive tooling.",
+      "OSCP+ and Security+ certified. AI security and LLM systems, Fortune 100 SOC experience, application security, and open-source offensive tooling.",
     images: ["/og-image.png"],
   },
 };

@@ -44,8 +44,8 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
 
   <text x="100" y="208" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="9" font-weight="700" fill="#FF6A00">OSCP+ &amp; SECURITY+ CERTIFIED</text>
   <text x="92" y="328" font-family="Arial, Helvetica, sans-serif" font-size="110" font-weight="800" fill="url(#nameGrad)">Vladimir Cuc</text>
-  <text x="100" y="398" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="600" fill="#FFFFFF" fill-opacity="0.92">Security Engineer &amp; Penetration Tester</text>
-  <text x="100" y="470" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#FFFFFF" fill-opacity="0.62">Fortune 100 SOC   ·   Offensive Tooling   ·   Application Security</text>
+  <text x="100" y="398" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="600" fill="#FFFFFF" fill-opacity="0.92">AI Security Engineer &amp; Penetration Tester</text>
+  <text x="100" y="470" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#FFFFFF" fill-opacity="0.62">Secure LLM Systems   ·   Fortune 100 SOC   ·   Offensive Tooling</text>
   <text x="100" y="556" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#FF6A00">vladimircuc.com</text>
 </svg>`;
 
