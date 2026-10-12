@@ -378,22 +378,23 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Blog Card */}
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#8B0000]/20 to-[#FF6A00]/10 p-6 backdrop-blur-sm">
-              <h3 className="text-lg font-semibold text-white">Latest Security Insights</h3>
+            {/* Latest AI Project Card */}
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#7C3AED]/20 to-[#FF6A00]/10 p-6 backdrop-blur-sm">
+              <h3 className="text-lg font-semibold text-white">Latest AI Project</h3>
               <p className="mt-2 text-sm text-white/70">
-                Explore my OSCP-style walkthroughs covering enumeration, exploitation,
-                lateral movement, and privilege escalation with clear methodology.
+                AI Visibility Audit is a live product that asks six AI engines who they
+                recommend for a local business and scores the answers in about four minutes.
               </p>
               <a
-                href="#blog"
-                onClick={(e) => handleSmoothScroll(e, "#blog")}
+                href="https://ai-audit.posted-social.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FF6A00] transition md:hover:text-[#FF6A00]/80"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
-                Read Blog Posts
+                Try It Live
               </a>
             </div>
 
@@ -437,7 +438,7 @@ export default function HomePage() {
         ref={aboutSectionRef}
         className="scroll-mt-32 py-10 md:py-12"
       >
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-end">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-stretch">
           {/* Left Side - About Text */}
             <div className={`space-y-6 relative flex flex-col text-center md:text-left transition-all duration-1000 ease-out ${
             aboutAnimated 
@@ -455,13 +456,10 @@ export default function HomePage() {
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[#8B0000]/10 via-[#FF6A00]/5 to-[#8B0000]/10 blur-2xl -z-10" />
               
               <p>
-                My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. That curiosity turned into an obsession with offensive security: grinding labs late into the night, chaining exploits, and learning to move through a network the way a real adversary would. It led me to the OSCP, which I passed on my first attempt, and it still shapes how I approach every engagement.
+                My path into cybersecurity started with a simple curiosity about how systems break, and how attackers think. That curiosity turned into an obsession with offensive security: grinding labs late into the night, chaining exploits, and mapping Active Directory attack paths from initial foothold to full domain compromise. It led me to the OSCP, which I passed on my first attempt.
               </p>
               <p>
-                I live in the attacker&apos;s mindset, enumerating aggressively, hunting misconfigurations, and mapping Active Directory attack paths from initial foothold to full domain compromise. I focus on privilege escalation, lateral movement, and pivoting, and I write my own tooling to make recon and exploitation faster and cleaner. When I&apos;m not in a lab, I&apos;m documenting walkthroughs and sharpening the tradecraft that turns a single weak point into complete control.
-              </p>
-              <p>
-                Increasingly, my work sits where security meets AI. At Posted Social I shipped a public AI product that queries six AI engines, along with its evaluation harness and its abuse and spend controls. I owned the backend of QUORRA, a RAG assistant with scoped retrieval and tool-calling guardrails, and I published peer-reviewed research fine-tuning a pathology foundation model at MIDL 2025. I approach AI the way I approach any target: learn how it breaks, then build the controls that hold.
+                Increasingly, my work sits where security meets AI. I shipped a public AI product at Posted Social, from its evaluation harness to its abuse and spend controls, built the backend of the QUORRA RAG assistant, and published peer-reviewed foundation-model research at MIDL 2025. I approach AI like any target: learn how it breaks, then build the controls that hold.
               </p>
             </div>
 
@@ -487,8 +485,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right Side - Contact & Education Card */}
-          <div className={`rounded-2xl border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-1000 ease-out delay-200 ${
+          {/* Right Side - Contact & Education Card, stretched to the text column's height so no gap opens above it */}
+          <div className={`flex flex-col justify-center rounded-2xl border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-1000 ease-out delay-200 ${
             aboutAnimated 
               ? "opacity-100 scale-100" 
               : "opacity-0 scale-95"
